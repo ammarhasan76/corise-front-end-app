@@ -15,6 +15,13 @@ def main():
     st.sidebar.subheader("Available Podcasts Feeds")
     selected_podcast = st.sidebar.selectbox("Select Podcast", options=available_podcast_info.keys())
 
+    # User Input box
+    st.sidebar.subheader("Add and Process New Podcast Feed")
+    url = st.sidebar.text_input("Link to RSS Feed")
+
+    process_button = st.sidebar.button("Process Podcast Feed")
+    st.sidebar.markdown("**Note**: Podcast processing can take upto 5 mins, please be patient.")
+    
     if selected_podcast:
 
         podcast_info = available_podcast_info[selected_podcast]
@@ -55,12 +62,7 @@ def main():
             st.markdown(
                 f"<p style='margin-bottom: 5px;'>{moment}</p>", unsafe_allow_html=True)
 
-    # User Input box
-    st.sidebar.subheader("Add and Process New Podcast Feed")
-    url = st.sidebar.text_input("Link to RSS Feed")
 
-    process_button = st.sidebar.button("Process Podcast Feed")
-    st.sidebar.markdown("**Note**: Podcast processing can take upto 5 mins, please be patient.")
 
     if process_button:
 
